@@ -1,6 +1,6 @@
 const db = require('../db');
 
-const getBranches = async (req, res, next) => {
+const getBranches = async (req, res) => {
   try {
     const { bankName, city } = req.params;
     const { offset, limit } = req.query;
@@ -10,7 +10,8 @@ const getBranches = async (req, res, next) => {
     );
     res.status(200).send(rows);
   } catch (err) {
-    next(err);
+    console.log(err);
+    res.status(500).end(err.message);
   }
 };
 

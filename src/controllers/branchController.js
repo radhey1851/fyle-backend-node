@@ -1,6 +1,6 @@
 const db = require('../db');
 
-const getBranchByIFSC = async (req, res, next) => {
+const getBranchByIFSC = async (req, res) => {
   try {
     const { ifsc } = req.params;
     const { rows } = await db.query('SELECT * FROM branches WHERE ifsc = $1', [ifsc]);
@@ -8,7 +8,8 @@ const getBranchByIFSC = async (req, res, next) => {
       .status(200)
       .send(rows[0]);
   } catch (err) {
-    next(err);
+    console.log(err);
+    res.status(500).end(err.message);
   }
 };
 
