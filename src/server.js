@@ -16,7 +16,9 @@ app.use(cors());
 app.use('/api', authMiddleware);
 app.get('/', (_, res) => res.send('hello world'));
 
-app.get('/api/auth', authorizeUser);
+// Just to get token
+app.get('/auth', authorizeUser);
+
 app.get('/api/branches/:ifsc', getBranchByIFSC);
 app.get('/api/banks/:bankName/city/:city', getBankBranches);
 
