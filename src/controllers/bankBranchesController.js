@@ -1,6 +1,6 @@
 const db = require('../db');
 
-const getBranches = async (req, res) => {
+const getBankBranches = async (req, res) => {
   try {
     const { bankName, city } = req.params;
     const { offset, limit } = req.query;
@@ -16,5 +16,5 @@ const getBranches = async (req, res) => {
 };
 
 module.exports = {
-  getBranches,
+  getBankBranches,
 };
