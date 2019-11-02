@@ -16,10 +16,10 @@ app.use(cors());
 app.use('/api', authMiddleware);
 app.get('/', (_, res) => res.send('hello world'));
 
-// Just to get token
+// To get a token
 app.get('/auth', authorizeUser);
 
 app.get('/api/branches/:ifsc', getBranchByIFSC);
 app.get('/api/banks/:bankName/city/:city', getBankBranches);
 
-app.listen(PORT, () => console.log(`Api running on port ${PORT}`));
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
